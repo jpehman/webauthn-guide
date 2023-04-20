@@ -61,7 +61,7 @@ You can get around that a little using localhost and a Chrome based browser (whi
   - Authenticator - Validate the challenge
   - Client - Send the challenge response
   - Relying Party - Validate the challenge response and... sign the user in or do whatever is needed now that its pretty certain the user is who it says it is
-- ASN.1 Signature Format: The required format for the public key credential -  Defined by [RFC3279](https://datatracker.ietf.org/doc/html/rfc3279) section 2.2.3
+- [ASN.1 Signature Format](https://learn.microsoft.com/en-us/windows/win32/seccertenroll/about-introduction-to-asn-1-syntax-and-encoding): The required format for the public key credential -  Defined by [RFC3279](https://datatracker.ietf.org/doc/html/rfc3279) section 2.2.3
   - Example:
         30 44                                ; SEQUENCE (68 Bytes)
             02 20                            ; INTEGER (32 Bytes)
