@@ -1,7 +1,7 @@
 # A Guide to Basic WebAuthn Implementation
 *For Relying Parties and Clients*
 
-In February of 2023, MDaemon Technologies, Ltd. decided to implement WebAuthn for all of its web facing products; MDaemon Webmail, MDaemon Remote Administration, and MDaemon SecurityGateway.
+In February of 2023, MDaemon Technologies, Ltd. decided to implement WebAuthn for its web facing products.
 
 Through reading the spec, a great deal of trouble shooting, and mountains of help from my boss, we were finally able to complete a basic implementation of WebAuthn.
 
