@@ -134,7 +134,8 @@ If any of the following steps fails, return an error.
   - You should now have a JSON object that looks something like this:
     ```json
       {
-        "type":"webauthn.get","challenge":"rhpkuiD1hLhJy7JUZ4rTYDbULNdpu7UTc6FTwCOePYwC8sohI96aTgX92R6gCVduQYro-dBCc087dM9i569pUA",
+        "type":"webauthn.get",
+        "challenge":"rhpkuiD1hLhJy7JUZ4rTYDbULNdpu7UTc6FTwCOePYwC8sohI96aTgX92R6gCVduQYro-dBCc087dM9i569pUA",
         "origin":"https://www.example.com:888",
         "crossOrigin":false
       }
