@@ -292,9 +292,11 @@ For example:
     - `-1` is the modulus and `-2` is the exponent, and both are base64url encoded
     - Use whatever RSA signer library you can find to verify that the decoded modulus and exponent make a valid key for signing
 
-Assuming everything above succeeds, you will need to store the following properties for the Authentication Ceremony
+Assuming everything above succeeds, you will need to store the following properties for the [Authentication Ceremony](authentication.md)
   - `credentialPublicKey`
   - `signCount`
   - `transports`
   - `userId`
   - `rpId`
+
+  
