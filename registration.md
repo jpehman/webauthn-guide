@@ -41,14 +41,14 @@ Once we have the `userid` (which is an email address in our case), the user's na
       "name": "john.doe@example.com",
       "displayName": "John Doe"
     },
-    "timeout": 12000, // 2 minutes
+    "timeout": 12000, /*2 minutes*/
     "pubKeyCredParams": [
       {
-        "alg": -7, // ES256
+        "alg": -7, /*ES256*/
         "type": "public-key"
       },
       {
-        "alg": -257, // RS256
+        "alg": -257, /*RS256*/
         "type": "public-key"
       }
     ],

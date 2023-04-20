@@ -20,7 +20,7 @@ To achieve this, all `challenge` responses should look the same. Let's have a lo
   {
     "challenge": "9nwYVw2rwD5R0naBxxJT9A0GnKK5e3Fkl0nR0s4r4Ng=",
     "rpId": "example.com",
-    "timeout": 12000, // 2 minutes
+    "timeout": 12000, /*2 minutes*/
     "allowCredentials": [
       {
         "id": "VDz/n9ZC0ijddXn89FM18snB9BQhDLDi+Yhoo2LBTsE=",
