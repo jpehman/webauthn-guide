@@ -12,9 +12,9 @@ As in the [Registration Ceremony](registration.md#registrationChallenge), the ha
 
 In our case, we only accept a `POST` method for this request, but you can handle it anyway you wish.
 
-Obviously, you need a user name in the request in order to know whether the requester is valid right? Yes. However, you should always respond with a `challenge`. Especially one that a hacker could not use to recognize that the user name sent does or does not exist. 
+Obviously, you need a user name in the request in order to know whether the requester is valid right? Yes. However, you should always respond with a `challengeJSON`. Especially one that a hacker could not use to recognize that the user name sent does or does not exist. 
 
-To achieve this, all `challenge` responses should look the same. Let's have a look at an example.
+To achieve this, all `challengeJSON` responses should look the same. Let's have a look at an example.
 
 ```json
   {
@@ -31,23 +31,23 @@ To achieve this, all `challenge` responses should look the same. Let's have a lo
   }
 ```
 
-The first thing that you may notice is that this object is noticeably smaller than the `challenge` from the registration ceremony.
+The first thing that you may notice is that this object is noticeably smaller than the `challengeJSON` from the registration ceremony.
 
 There's also no user identifying information returned.
 
-In the case that the user name sent to the server when requesting the `challenge` is invalid, create an `allowCredentials` value in the same manner that the `excludeCredentials` value was created [here](registration.md#excludeCredentials).
+In the case that the user name sent to the server when requesting the `challengeJSON` is invalid, create an `allowCredentials` value in the same manner that the `excludeCredentials` value was created [here](registration.md#excludeCredentials).
 
 (at the risk of being repetitive)
-`challenge.challenge` must be a cryptographically random number at least 16 bytes in length. You will notice that the `challenge.challenge` and `id`s above are all base64 encoded, so that they can be sent over HTTPS connections with ease.
+`challengeJSON.challenge` must be a cryptographically random number at least 16 bytes in length. You will notice that the `challengeJSON.challenge` and `id`s above are all base64 encoded, so that they can be sent over HTTPS connections with ease.
 
 `rpId` must be equivalent to the `rp.id` from the [Registration Challenge](registration.md#rpObject)
 
-`timeout` is how much time in milliseconds the relying party will allow before the `challenge` is no longer valid and any response that includes the `challenge` will be rejected.
+`timeout` is how much time in milliseconds the relying party will allow before the `challengeJSON.challenge` is no longer valid and any response that includes the `challengeJSON.challenge` will be rejected.
 
 `allowCredentials` is an array of credentials that the server will accept. <em>This array should never be empty, otherwise it could reveal the existence or non-existence of the given user. Instead, you should make sure that it always returns at least one credential with consistent `id`, `type` and `transports` values.</em>
 
 ### <a id="authenticationClientChallenge"></a> Client Side Challenge Response Handling
-Assuming the `challenge` is returned (which should always be the case), each base64 encoded random value has to be converted to an `ArrayBuffer` before being submitted to `navigator.credentials.get`.
+Assuming the `challengeJSON` is returned (which should always be the case), each base64 encoded random value has to be converted to an `ArrayBuffer` before being submitted to `navigator.credentials.get`.
 
 For example:
 ```javascript
@@ -59,7 +59,7 @@ For example:
   }
 
   challengeJSON.challenge = buffer;
-  // then do the same for challengeJSON.user.id and all challengeJSON.excludeCredentials ids
+  // then do the same for all challengeJSON.allowCredentials ids
 ```
 
 Once the ids are converted to `ArrayBuffer`s you can make the request to the credentials object.
@@ -73,7 +73,7 @@ Once the ids are converted to `ArrayBuffer`s you can make the request to the cre
 At this point, the device presents an authentication dialog to the user or, if the `transport` is `internal`, use the device to authenticate. The user can either authenticate or cancel the ceremony.
 
 ### <a id="clientSideAttestationResponse"></a> Client Side Assertion Response Handling
-Now that we have our `challenge` response from the authenticator, we need to test it, make some minor edits, and send the response to the server.
+Now that we have our `challengeJSON` response (`assertionJSON`) from the authenticator, we need to test it, make some minor edits, and send the response to the server.
 
 ```javascript
   // make sure that the response is an instance of AuthenticatorAssertionResponse
@@ -98,7 +98,7 @@ Now that we have our `challenge` response from the authenticator, we need to tes
     }
 
     // the WorldClientAPI request looks like this
-    const response = await fetch(`${host}/authenticate/credentials/auth`, { method: "POST" });
+    const response = await fetch(`${host}/authenticate/credentials/auth`, { method: "POST", body: assertionJSON });
   }
 ```
 
