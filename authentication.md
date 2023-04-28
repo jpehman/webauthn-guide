@@ -31,7 +31,7 @@ To achieve this, all `challenge` responses should look the same. Let's have a lo
   }
 ```
 
-The first thing that you may notice is that this object is noticably smaller than the `challenge` from the registration ceremony.
+The first thing that you may notice is that this object is noticeably smaller than the `challenge` from the registration ceremony.
 
 There's also no user identifying information returned.
 
