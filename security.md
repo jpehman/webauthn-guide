@@ -7,7 +7,7 @@ Here are some highlights
 - "Simplistic use of WebAuthn in an embedded context, e.g., within iframes as described in § 5.10 Using Web Authentication within iframe elements, may make users vulnerable to UI Redressing attacks, also known as 'Clickjacking'".
 - Replay attacks 
   - Mitigated by always using cryptographically random values for the `challenge`
-- Main-in-the-middle attacks
+- Man-in-the-middle attacks
   - There's no way to know that an attestation statement was not produced by someone other than the intended party during registration
 - A user could potentially get locked out of an account if the user loses the authenticator device
 - User data leaks
