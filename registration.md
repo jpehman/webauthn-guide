@@ -192,7 +192,7 @@ Now that we have our `challenge` response from the authenticator, we need to tes
     }
 
     // the WorldClientAPI request looks like this
-    const response = await fetch(`${host}/authenticate/credentials/register`, { method: "POST" });
+    const response = await fetch(`${host}/authenticate/credentials/register`, { method: "POST", body: credentialJSON });
   }
 ```
 
