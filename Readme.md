@@ -31,7 +31,7 @@ Make sure you have libraries that will do the following:
 
 HTTPS connections are required for all parts of both ceremonies. You will not be able to test devices without a trusted certificate.
 
-You can get around that a little using localhost and a Chrome based browser (which has built WebAuthn testing tools). However, you may need to use a proxy DNS like NextDNS to test on handheld devices.
+You can get around that a little using localhost and a Chrome based browser (which has built-in WebAuthn testing tools). However, you may need to use a proxy DNS like NextDNS to test on handheld devices.
 
 ## <a id="importantLinks"></a> Important Links
 - The Specification: [https://www.w3.org/TR/webauthn/](https://www.w3.org/TR/webauthn/#sctn-intro)
@@ -46,7 +46,7 @@ You can get around that a little using localhost and a Chrome based browser (whi
 ## <a id="importantTerms"></a> Important Terms
 - Relying Party: The host of the website implementing WebAuthn
 - Client: The browser or device used as a proxy between the server and the authenticator device
-- Authenticator: The device used as for authenticating the user, e.g. a security key, biometric authenticator, or pass key
+- Authenticator: The device used for authenticating the user, e.g. a security key, biometric authenticator, or pass key
 - registration ceremony: The five part process of creating a valid user public key for use in the authentication ceremony
   - Client - Request a challenge
   - Relying Party - Respond with the challenge
@@ -57,7 +57,7 @@ You can get around that a little using localhost and a Chrome based browser (whi
 - CBOR: Concise Binary Object Representation - A binary JSON format that for some reason is only used during the Registration Ceremony (maybe someone thought it was a cool new thing they wanted to learn... I don't know)
 - authentication ceremony: The five part process of user validation
   - Client - Request a challenge
-  - Relying Party - Response with the challenge
+  - Relying Party - Respond with the challenge
   - Authenticator - Validate the challenge
   - Client - Send the challenge response
   - Relying Party - Validate the challenge response and... sign the user in or do whatever is needed now that its pretty certain the user is who it says it is
