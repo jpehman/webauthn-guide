@@ -3,7 +3,7 @@
 This ceremony can only proceed if the device attempting to authenticate has been registered to a user and the relevant properties have been stored by the Relying Party.
 
 ## <a id="authenticationChallenge"></a> Challenge
-First request a challenge from the server. In our case, the request to the `WorldClientAPI` looks like this:
+First, request a challenge from the server. In our case, the request to the `WorldClientAPI` looks like this:
 ```javascript
   let challengeJSON = await fetch(`${host}/authenticate/credentials/auth/challenge`, { method: "POST" });
 ```
@@ -70,7 +70,7 @@ Once the ids are converted to `ArrayBuffer`s you can make the request to the cre
   );
 ```
 
-At this point, the device presents an authentication dialog to the user or, if the `transport` is `internal`, use the device to authenticate. The user can either authenticate or cancel the ceremony.
+At this point, the device presents an authentication dialog to the user or, if the `transport` is `internal`, uses the device to authenticate. The user can either authenticate or cancel the ceremony.
 
 ### <a id="clientSideAttestationResponse"></a> Client Side Assertion Response Handling
 Now that we have our `challengeJSON` response (`assertionJSON`) from the authenticator, we need to test it, make some minor edits, and send the response to the server.
