@@ -1,4 +1,4 @@
-# <a id="authenticationCeremony"></a> The Authentication Ceremony
+8# <a id="authenticationCeremony"></a> The Authentication Ceremony
 
 This ceremony can only proceed if the device attempting to authenticate has been registered to a user and the relevant properties have been stored by the Relying Party.
 
@@ -162,7 +162,7 @@ If any of the following steps fails, return an error.
   - It's big endian, so you need to shift it into an unsigned int. 
   - Compare it to the stored sign count
   - If it is greater than or equal to the stored sign count, update the stored sign count with the new `signCount`
-  - If it is less, then there is a possibility that the previate key was cloned and you should delete the registered public key
+  - If it is less, then there is a possibility that the private key was cloned and you should delete the registered public key
 
 ### Validation of the `userHandle`
 - Compare this to the `challengeJSON.user.id` created during the [Registration Ceremony](registration.md#registrationChallenge)
