@@ -279,7 +279,7 @@ For example:
 - Use the `credentialIdLength` to assign the next byte + the length of the credential to a string called `credentialId` and base64 encode this value
 - Assign that same byte + length to a string called `credentialPublicKey` (do not encode it)
 - <a id="credentialPublicKeyValidation"></a>Use a CBOR library to decode the `credentialPublicKey`
-  - Get property `3` and verify that its value is a longlong
+  - Get property `3` and verify that its value is a long long
     - This value is the type of signing algorithm being used
     - Verify that it's a valid algorithm option as listed here: [Valid Algorithms](#validAlgorithms)
     - Verify that it's an algorithm you included in your supported list
@@ -288,7 +288,7 @@ For example:
     - `-2` and `-3` are base64url encoded strings of the two parts of the ECDSA public key, decode each of them into separate variables
     - They should each be 32 bytes in length decoded 
     - Use whatever ECDSA signer library you can find to verify that the decoded public key is a valid key for signing
-  - If property `1` is "3", get proprty `-1` and property `-2`
+  - If property `1` is "3", get property `-1` and property `-2`
     - `-1` is the modulus and `-2` is the exponent, and both are base64url encoded
     - Use whatever RSA signer library you can find to verify that the decoded modulus and exponent make a valid key for signing
 
